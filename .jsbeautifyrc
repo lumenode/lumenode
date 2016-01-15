@@ -1,0 +1,11 @@
+{
+  "js": {
+    "jslint_happy": false,
+    "indent_char": " ",
+    "indent_level": 0,
+    "indent_size": 2,
+    "space_after_anon_function": true,
+    "space_before_conditional": true,
+    "indent_with_tabs": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "lumenode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "escape-html": "^1.0.3",
+    "express": "^4.13.3",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.0.0",
+    "lumenode-config": "^1.0.0",
+    "lumenode-container": "^1.0.0",
+    "lumenode-environment-detector": "^1.0.0",
+    "lumenode-filesystem": "^1.0.2",
+    "lumenode-foundation": "^1.0.2",
+    "lumenode-http": "^1.0.0",
+    "lumenode-logger": "^1.0.0",
+    "moment": "^2.11.1",
+    "mongoose": "^4.3.5",
+    "node-pubsub": "^0.1.0",
+    "path": "^0.12.7",
+    "q": "^1.4.1"
+  }
+}

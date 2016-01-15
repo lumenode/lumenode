@@ -1,0 +1,14 @@
+.idea
+node_modules
+coverage
+*.sublime-workspace
+
+.log
+storage/logs/*.log
+storage/reports/*.log
+storage/test-reports/*.log
+
+!.gitkeep
+
+.DS_Store
+.editorconfig
