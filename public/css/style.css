@@ -22,4 +22,5 @@ html, body {
 
 .Aligner-item {
   max-width: 50%;
+  text-align: center;
 }

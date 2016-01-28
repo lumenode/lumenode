@@ -11,3 +11,5 @@
 |
 */
 router().get('/', 'HomeController@index');
+router().get('/list', 'HomeController@list');
+router().get('/new', 'HomeController@new');
