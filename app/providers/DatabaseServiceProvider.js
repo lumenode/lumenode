@@ -15,13 +15,17 @@ DatabaseServiceProvider.prototype.register = function () {
 
 DatabaseServiceProvider.prototype.createConnection = function (database) {
   var deferred = Q.defer();
-console.log(this.getDatabaseUrl(database));
-  mongoose.connect(this.getDatabaseUrl(database));
+  var url = this.getDatabaseUrl(database);
+
+  mongoose.connect(url);
 
   var db = mongoose.connection;
 
   db.on('error', deferred.reject);
-  db.once('open', deferred.resolve);
+  db.once('open', function() {
+    log('info', 'Connected to - ' + url);
+    deferred.resolve();
+  }.bind(this));
 
   return deferred.promise;
 };
