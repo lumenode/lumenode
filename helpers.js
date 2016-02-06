@@ -105,6 +105,8 @@ global.report = function (logger, action, message) {
  * @return {String}      Resulted path
  */
 global.basePath = function (path) {
+  path = path || '';
+
   return __dirname + '/' + path;
 };
 
