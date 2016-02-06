@@ -2,15 +2,18 @@
 
 var Kernel = require('lumenode-foundation').Kernel;
 
-function HttpKernel(Application, Router) {
-  this.routeMiddlewares = {};
+class HttpKernel extends Kernel {
 
-  Kernel.apply(this, arguments);
+  constructor(Application, Router) {
+    super(Application, Router);
+
+    this.routeMiddlewares = {};
+  }
+
+  bootstraped() {
+    require('./routes');
+  }
+
 }
-inherit(HttpKernel, Kernel);
-
-HttpKernel.prototype.bootstraped = function () {
-  require('./routes');
-};
 
 module.exports = HttpKernel;

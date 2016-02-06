@@ -1,13 +1,13 @@
 'use strict';
 
-function HomeController() {
+class HomeController {
 
   /**
    * Show emulator form.
    *
    * @return {*}  Response
    */
-  this.index = function () {
+  index() {
     var fs = require('fs');
     var handlebars = require('handlebars');
 
@@ -15,7 +15,7 @@ function HomeController() {
     var template = handlebars.compile(html)();
 
     return response(template);
-  };
+  }
 
 }
 

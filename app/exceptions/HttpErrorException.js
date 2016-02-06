@@ -2,10 +2,14 @@
 
 var Exception = require('lumenode-foundation').Exception;
 
-function HttpErrorException() {
-  this.name = 'HttpErrorException';
-  Exception.apply(this, arguments);
+class HttpErrorException extends Exception {
+
+  constructor() {
+    super();
+
+    this.name = 'HttpErrorException';
+  }
+
 }
-inherit(HttpErrorException, Exception);
 
 module.exports = HttpErrorException;

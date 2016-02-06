@@ -1,7 +1,7 @@
 'use strict';
 
 var zombie = require('zombie');
-require(__dirname + '/../../index');
+require(__dirname + '/../../../index');
 
 function World() {
   this.browser = new zombie();

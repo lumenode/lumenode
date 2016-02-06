@@ -1,5 +1,6 @@
 'use strict';
 
+var file = app().make('Filesystem');
 var path = require('path');
 
 function register(entity) {
@@ -13,12 +14,13 @@ function load(entity) {
 }
 
 // Load
-getFiles(basePath('app/models')).forEach(load);
+file.getFiles(basePath('app/models')).forEach(load);
 
 // Register
-getFiles(basePath('app/services')).forEach(register);
-getFiles(basePath('app/factories')).forEach(register);
-getFiles(basePath('app/repositories')).forEach(register);
-getFiles(basePath('app/http/controllers')).forEach(register);
-getFiles(basePath('app/traits')).forEach(register);
-getFiles(basePath('app/mappers')).forEach(register);
+file.getFiles(basePath('app/http/controllers')).forEach(register);
+file.getFiles(basePath('app/repositories')).forEach(register);
+file.getFiles(basePath('app/exceptions')).forEach(register);
+file.getFiles(basePath('app/factories')).forEach(register);
+file.getFiles(basePath('app/services')).forEach(register);
+file.getFiles(basePath('app/events')).forEach(register);
+file.getFiles(basePath('app/traits')).forEach(register);

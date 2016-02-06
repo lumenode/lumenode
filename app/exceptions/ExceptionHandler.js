@@ -2,9 +2,12 @@
 
 var CoreExceptionHandler = require('lumenode-foundation').ExceptionHandler;
 
-function ExceptionHandler(Application) {
-  CoreExceptionHandler.apply(this, arguments);
+class ExceptionHandler extends CoreExceptionHandler {
+
+  constructor(Application) {
+    super(Application);
+  }
+
 }
-inherit(ExceptionHandler, CoreExceptionHandler);
 
 module.exports = ExceptionHandler;

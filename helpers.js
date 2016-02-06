@@ -3,13 +3,12 @@
 var Q = require('q');
 var fs = require('fs');
 var _ = require('lodash');
-var moment = require('moment');
 var path = require('path');
 var Observer = require('node-pubsub');
 var lumenode = require('lumenode-foundation');
 
 global.app = function () {
-  return lumenode.getInstance(__dirname + '/');
+  return lumenode.getInstance(__dirname);
 };
 
 /**
@@ -110,16 +109,6 @@ global.basePath = function (path) {
 };
 
 /**
- * Generate path to XML templates (openbet actions).
- *
- * @param  {String} path Path to generate
- * @return {String}      Resulted path
- */
-global.xmlTemplatePath = function (path) {
-  return basePath('public/templates/' + path);
-};
-
-/**
  * Execute application's listener.
  * We can pass both string or event object.
  * If we passed a string -> listener will be resolved out of ioc.
@@ -169,24 +158,6 @@ global.response = function () {
 };
 
 /**
- * Take origin ID by type from list of origins
- * @param  {Array} origins     List of origins
- * @param  {String} originType Origin type
- * @return {Number}            Origin id
- */
-global.takeOriginID = function (origins, originType) {
-  var originId = _.get(_.findWhere(origins, {
-    type: originType
-  }), 'id');
-
-  if (originId) {
-    return String(originId);
-  };
-
-  return false;
-};
-
-/**
  * Wait untill every promise is resolved.
  *
  * @param  {Array} a  List of promises
@@ -194,24 +165,6 @@ global.takeOriginID = function (origins, originType) {
  */
 global.wait = function (a) {
   return Q.all(a);
-};
-
-/**
- * Inherits classA from classB
- *
- * @param  {Function} target Target classA
- * @param  {Function} parent Sorce classB
- * @return {void}
- */
-global.inherit = function (target, parent) {
-  target.prototype = Object.create(parent.prototype, {
-    constructor: {
-      value: target,
-      writable: false,
-      enumerable: false,
-      configurable: false
-    }
-  });
 };
 
 /**
@@ -234,15 +187,6 @@ global.getFiles = function (dir, files_) {
     }
   }
   return files_;
-}
-
-/**
- * Store events/markets/selections ids for successfully inserted events.
- *
- * @param  {Array} json Response from OB
- */
-global.backupEventIDs = function (json) {
-  return app().make('EventStorage').add(json);
 };
 
 /**
@@ -258,8 +202,4 @@ global.getValue = function (object, query, defaultValue) {
   var value = _.get(object, query, defaultValue);
 
   return _.isEmpty(value) ? defaultValue : value;
-};
-
-global.formatDate = function (date) {
-  return moment(date).format('YYYY-MM-DD HH:mm:ss');
 };

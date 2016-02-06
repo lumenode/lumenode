@@ -142,28 +142,3 @@ gulp.task('runMocha', ['env:testing', 'clean-logs'], function () {
 gulp.task('cucumber', function() {
   return gulp.src(['features/**']).pipe(shell('node node_modules/cucumber/bin/cucumber.js'));
 });
-
-gulp.task('ob:clear', function() {
-  require('./remover');
-});
-
-gulp.task('db:clear', function() {
-  require('./helpers');
-  require('./bootstrap/app');
-  var EventRepository = require(basePath('app/repositories/EventRepository'));
-  var MarketRepository = require(basePath('app/repositories/MarketRepository'));
-  var SelectionRepository = require(basePath('app/repositories/SelectionRepository'));
-
-  var eventRepository = new EventRepository;
-  var marketRepository = new MarketRepository;
-  var selectionRepository = new SelectionRepository;
-
-  wait([
-      eventRepository.clear(),
-      marketRepository.clear(),
-      selectionRepository.clear()
-    ])
-    .then(function () {
-      process.exit();
-    });
-});

@@ -2,11 +2,14 @@
 
 var Exception = require('lumenode-foundation').Exception;
 
-function ServerErrorException(message) {
-  this.name = 'ServerErrorException';
+class ServerErrorException extends Exception {
 
-  Exception.apply(this, arguments);
+  constructor() {
+    super();
+
+    this.name = 'ServerErrorException';
+  }
+
 }
-inherit(ServerErrorException, Exception);
 
 module.exports = ServerErrorException;

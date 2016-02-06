@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/.bin/cucumberjs tests/acceptance"
   },
   "author": "",
   "license": "ISC",
@@ -14,11 +14,11 @@
     "express": "^4.13.3",
     "handlebars": "^4.0.5",
     "lodash": "^4.0.0",
-    "lumenode-config": "^1.0.0",
-    "lumenode-container": "^1.0.0",
-    "lumenode-environment-detector": "^1.0.0",
-    "lumenode-filesystem": "^1.0.2",
-    "lumenode-foundation": "^1.0.2",
+    "lumenode-config": "latest",
+    "lumenode-container": "latest",
+    "lumenode-environment-detector": "latest",
+    "lumenode-filesystem": "latest",
+    "lumenode-foundation": "^1.1.1",
     "lumenode-http": "^1.0.0",
     "lumenode-logger": "^1.0.0",
     "moment": "^2.11.1",
@@ -26,5 +26,10 @@
     "node-pubsub": "^0.1.0",
     "path": "^0.12.7",
     "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "cucumber": "^0.9.4",
+    "should": "^8.2.1",
+    "zombie": "^4.2.1"
   }
 }
