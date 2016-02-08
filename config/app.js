@@ -3,10 +3,9 @@
 module.exports = function () {
   return {
     app: {
-      openbetTypeID: 3048,
       port: 3536,
       debug: isTesting(),
-      logToConsole: true,
+      logToConsole: false,
       underMaintenance: false,
 
       amqp: getRabbitmqUrl(),
