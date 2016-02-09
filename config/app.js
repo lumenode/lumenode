@@ -5,7 +5,7 @@ module.exports = function () {
     app: {
       port: 3536,
       debug: isTesting(),
-      logToConsole: false,
+      logToConsole: true,
       underMaintenance: false,
 
       amqp: getRabbitmqUrl(),
