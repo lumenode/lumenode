@@ -4,8 +4,8 @@ var Exception = require('lumenode-foundation').Exception;
 
 class ServerErrorException extends Exception {
 
-  constructor() {
-    super();
+  constructor(code, message) {
+    super(code, message);
 
     this.name = 'ServerErrorException';
   }
