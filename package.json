@@ -1,10 +1,10 @@
 {
   "name": "lumenode",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/.bin/cucumberjs tests/acceptance"
+    "test": "node node_modules/.bin/cucumberjs tests/acceptance --config.app.logToConsole=0"
   },
   "author": "",
   "license": "ISC",
